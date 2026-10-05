@@ -1,0 +1,26 @@
+services:
+  akrem-store:
+    build:
+      context: .
+      args:
+        # Sub-path hosting (e.g. /shop/): set VITE_BASE=/shop/ in .env
+        VITE_BASE: ${VITE_BASE:-/}
+    image: akrem-store:latest
+    container_name: akrem-store
+    restart: unless-stopped
+    ports:
+      - "${HOST_PORT:-8084}:8084"
+    env_file:
+      - .env
+    environment:
+      # Hard container defaults. The port must match the published container
+      # port above; DB_PATH must stay on the /data volume.
+      NODE_ENV: production
+      PORT: "8084"
+      HOST: 0.0.0.0
+      DB_PATH: /data/store.db
+    volumes:
+      - akrem-data:/data
+
+volumes:
+  akrem-data:

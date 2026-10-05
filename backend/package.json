@@ -1,0 +1,20 @@
+{
+  "name": "akrem-store-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Akrem Mobile - REST API (Express + better-sqlite3)",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "seed": "node src/seed.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}

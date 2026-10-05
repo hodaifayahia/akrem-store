@@ -1,0 +1,176 @@
+/* ==========================================================================
+   Akrem Mobile — design tokens
+   Dark-first, RTL, Arabic tech store. Every colour is an HSL triplet consumed
+   as `hsl(var(--token) / <alpha>)`.
+   ========================================================================== */
+
+:root,
+html.dark {
+  --background: 220 51% 7%;
+  --foreground: 210 20% 92%;
+  --card: 220 51% 7%;
+  --popover: 220 51% 9%;
+  --primary: 217 100% 60%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 220 40% 11%;
+  --secondary-foreground: 210 20% 92%;
+  --muted: 220 40% 11%;
+  --muted-foreground: 220 12% 68%;
+  --accent: 217 100% 60%;
+  --destructive: 4 78% 58%;
+  --border: 220 30% 16%;
+  --input: 220 40% 11%;
+  --ring: 217 100% 60%;
+  --success: 152 60% 45%;
+  --warning: 38 95% 58%;
+}
+
+[data-theme='light'] {
+  --background: 222 40% 97%;
+  --foreground: 222 51% 10%;
+  --card: 0 0% 100%;
+  --popover: 0 0% 100%;
+  --primary: 217 100% 55%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 217 60% 94%;
+  --secondary-foreground: 222 51% 10%;
+  --muted: 220 30% 95%;
+  --muted-foreground: 222 15% 42%;
+  --accent: 217 100% 55%;
+  --destructive: 4 78% 58%;
+  --border: 222 25% 88%;
+  --input: 222 25% 94%;
+  --ring: 217 100% 55%;
+  --success: 152 60% 38%;
+  --warning: 38 95% 48%;
+}
+
+:root {
+  /* Non-colour tokens */
+  --radius: 0.75rem;
+  --radius-sm: 0.5rem;
+  --radius-lg: 1rem;
+  --max-w: 1200px;
+  --font-display: 'Space Grotesk', 'Cairo', sans-serif;
+  --font-body: 'DM Sans', 'Cairo', system-ui, sans-serif;
+  --gradient-primary: linear-gradient(135deg, hsl(217 100% 60%) 0%, hsl(199 100% 50%) 100%);
+  --shadow-card: 0 18px 40px -28px hsl(217 100% 60% / 0.55);
+  --shadow-glow: 0 14px 34px -14px hsl(217 100% 60% / 0.6);
+  --transition: 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ------------------------------------------------------------------ reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: clamp(1.9rem, 5vw, 3.2rem);
+}
+h2 {
+  font-size: clamp(1.35rem, 3.2vw, 2rem);
+}
+h3 {
+  font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+::selection {
+  background: hsl(var(--primary) / 0.35);
+}
+
+/* Slim, brand-tinted scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
